@@ -10,10 +10,10 @@ typedef struct tnode *Treeptr;
 
 // A tree node.
 typedef struct tnode {
-    char *word;     // 0b
-    int  count;     // 8b
-    Treeptr left;   // 12b
-    Treeptr right;  // 20b
+    char *word;
+    int  count;
+    Treeptr left;
+    Treeptr right;
 } Treenode;
 
 Treeptr addtree(Treeptr, char *);
