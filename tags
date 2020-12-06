@@ -1,0 +1,19 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+MAXWORD	bintree.c	6;"	d	file:
+Treenode	bintree.c	/^} Treenode;$/;"	t	typeref:struct:tnode	file:
+Treeptr	bintree.c	/^typedef struct tnode *Treeptr;$/;"	t	typeref:struct:tnode	file:
+addtree	bintree.c	/^Treeptr addtree(Treeptr node, char *word){$/;"	f
+count	bintree.c	/^    int  count;     \/\/ 8b$/;"	m	struct:tnode	file:
+left	bintree.c	/^    Treeptr left;   \/\/ 12b$/;"	m	struct:tnode	file:
+main	bintree.c	/^int main(){$/;"	f
+print_node	bintree.c	/^void print_node(Treeptr node){$/;"	f
+right	bintree.c	/^    Treeptr right;  \/\/ 20b$/;"	m	struct:tnode	file:
+talloc	bintree.c	/^Treeptr talloc(void){$/;"	f
+tnode	bintree.c	/^typedef struct tnode {$/;"	s	file:
+treeprint	bintree.c	/^void treeprint(Treeptr tree){$/;"	f
+word	bintree.c	/^    char *word;     \/\/ 0b$/;"	m	struct:tnode	file:
