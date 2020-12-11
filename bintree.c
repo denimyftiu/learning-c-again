@@ -6,8 +6,8 @@
 #define MAXWORD 100
 
 static int freedword = 0;
-static int wordsdoubled = 0;
 static int wordcount = 0;
+static int wordsdoubled = 0;
 
 // pointer to a tree node.
 typedef struct tnode *Treeptr;
@@ -120,5 +120,5 @@ void free_tree(Treeptr node) {
 void tree_info() {
     printf("words in tree: %d\n", wordcount);
     printf("words freed from the tree: %d\n", freedword);
-    printf("words wordsdoubled: %d\n", freedword);
+    printf("words wordsdoubled: %d\n", wordsdoubled);
 }
