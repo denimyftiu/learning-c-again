@@ -25,6 +25,7 @@ Treeptr talloc(void);
 void treeprint(Treeptr);
 void print_node(Treeptr);
 void free_tree(Treeptr);
+void tree_info();
 
 int main(){
 
@@ -37,19 +38,16 @@ int main(){
     root = NULL;
     char word[MAXWORD];
 
-    printf("words in tree: %d\n", wordcount);
-    printf("words freed from the tree: %d\n", freedword);
-    printf("words wordsdoubled: %d\n", freedword);
-
+    //before
+    tree_info();
     while(scanf("%s", word) != EOF)
         if(isalpha(word[0]))
             root = addtree(root, word);
 
-    // treeprint(root);
+    treeprint(root);
     free_tree(root);
-    printf("words in tree: %d\n", wordcount);
-    printf("words freed from the tree: %d\n", freedword);
-    printf("words wordsdoubled: %d\n", wordsdoubled);
+    // after
+    tree_info();
     return 0;
 }
 
@@ -117,4 +115,10 @@ void free_tree(Treeptr node) {
         freedword++;
         free(node);
     }
+}
+
+void tree_info() {
+    printf("words in tree: %d\n", wordcount);
+    printf("words freed from the tree: %d\n", freedword);
+    printf("words wordsdoubled: %d\n", freedword);
 }
