@@ -8,12 +8,17 @@ MAXWORD	bintree.c	6;"	d	file:
 Treenode	bintree.c	/^} Treenode;$/;"	t	typeref:struct:tnode	file:
 Treeptr	bintree.c	/^typedef struct tnode *Treeptr;$/;"	t	typeref:struct:tnode	file:
 addtree	bintree.c	/^Treeptr addtree(Treeptr node, char *word){$/;"	f
-count	bintree.c	/^    int  count;     \/\/ 8b$/;"	m	struct:tnode	file:
-left	bintree.c	/^    Treeptr left;   \/\/ 12b$/;"	m	struct:tnode	file:
+count	bintree.c	/^    int  count;$/;"	m	struct:tnode	file:
+free_tree	bintree.c	/^void free_tree(Treeptr node) {$/;"	f
+freedword	bintree.c	/^static int freedword = 0;$/;"	v	file:
+left	bintree.c	/^    Treeptr left;$/;"	m	struct:tnode	file:
 main	bintree.c	/^int main(){$/;"	f
 print_node	bintree.c	/^void print_node(Treeptr node){$/;"	f
-right	bintree.c	/^    Treeptr right;  \/\/ 20b$/;"	m	struct:tnode	file:
+right	bintree.c	/^    Treeptr right;$/;"	m	struct:tnode	file:
 talloc	bintree.c	/^Treeptr talloc(void){$/;"	f
 tnode	bintree.c	/^typedef struct tnode {$/;"	s	file:
+tree_info	bintree.c	/^void tree_info() {$/;"	f
 treeprint	bintree.c	/^void treeprint(Treeptr tree){$/;"	f
-word	bintree.c	/^    char *word;     \/\/ 0b$/;"	m	struct:tnode	file:
+word	bintree.c	/^    char *word;$/;"	m	struct:tnode	file:
+wordcount	bintree.c	/^static int wordcount = 0;$/;"	v	file:
+wordsdoubled	bintree.c	/^static int wordsdoubled = 0;$/;"	v	file:
