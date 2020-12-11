@@ -5,6 +5,10 @@
 
 #define MAXWORD 100
 
+static int freedword = 0;
+static int wordsdoubled = 0;
+static int wordcount = 0;
+
 // pointer to a tree node.
 typedef struct tnode *Treeptr;
 
@@ -20,23 +24,32 @@ Treeptr addtree(Treeptr, char *);
 Treeptr talloc(void);
 void treeprint(Treeptr);
 void print_node(Treeptr);
+void free_tree(Treeptr);
 
 int main(){
 
+    printf("SIZE OF TREE STRUCT: 0x%lx\n", sizeof(Treenode));
+    printf("SIZE OF TREE PTR: 0x%lx\n", sizeof(Treeptr));
+    printf("SIZE OF CHAR * : 0x%lx\n", sizeof(char *));
+    printf("SIZE OF INTEGER: 0x%lx\n", sizeof(int));
+
     Treeptr root;
     root = NULL;
-
-    printf("SIZE OF TREE STRUCT: 0x%x\n", sizeof(Treenode));
-    printf("SIZE OF TREE PTR: 0x%x\n", sizeof(Treeptr));
-    printf("SIZE OF CHAR * : 0x%x\n", sizeof(char *));
-    printf("SIZE OF INTEGER: 0x%x\n", sizeof(int));
     char word[MAXWORD];
 
-    // while(scanf("%s", word) != EOF)
-    //     if(isalpha(word[0]))
-    //         root = addtree(root, word);
+    printf("words in tree: %d\n", wordcount);
+    printf("words freed from the tree: %d\n", freedword);
+    printf("words wordsdoubled: %d\n", freedword);
+
+    while(scanf("%s", word) != EOF)
+        if(isalpha(word[0]))
+            root = addtree(root, word);
 
     // treeprint(root);
+    free_tree(root);
+    printf("words in tree: %d\n", wordcount);
+    printf("words freed from the tree: %d\n", freedword);
+    printf("words wordsdoubled: %d\n", wordsdoubled);
     return 0;
 }
 
@@ -44,12 +57,14 @@ Treeptr addtree(Treeptr node, char *word){
     int cond;
 
     if (node == NULL) { 
+        wordcount++;
         node = talloc();
         node->count = 1;
         node->word = strdup(word);
         node->left = node->right = NULL;
     } else if ((cond = strcmp(word, node->word)) == 0){
         node->count++;
+        wordsdoubled++;
     } else if (cond < 0) { 
         node->left = addtree(node->left, word);
     } else {
@@ -93,3 +108,13 @@ void print_node(Treeptr node){
     printf("\n");
 }
 
+void free_tree(Treeptr node) {
+    // DFS for this so we free from bottom to top.
+    if (node != NULL){
+        free_tree(node->right);
+        free_tree(node->left);
+        printf("Freeing: %s.\n", node->word);
+        freedword++;
+        free(node);
+    }
+}
