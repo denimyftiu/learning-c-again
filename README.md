@@ -4,7 +4,7 @@
    gcc bintree.c
    objdump -M intel -d a.out
 ```
-## Brouse the code.
+## Browse the code.
 ```bash
     ctags -R .
     vim bintree.c
